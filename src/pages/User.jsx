@@ -1,14 +1,19 @@
 import React from 'react';
 import BookList from '../components/BookList';
-import { useBookContext } from '../context/BookContext'; // Исправленный импорт
+import { useBookContext } from '../context/BookContext';
 
 const User = () => {
-    const { booksData } = useBookContext();
+    const { books, rentBook, purchaseBook } = useBookContext();
+    const availableBooks = books.filter(b => b.status === 'available');
 
     return (
         <div className="p-4">
-            <h1 className="text-3xl font-bold mb-4">Книжный магазин</h1>
-            <BookList books={booksData} />
+            <h1 className="text-3xl font-bold mb-6">Доступные для аренды/покупки</h1>
+            <BookList
+                books={availableBooks}
+                onPurchase={purchaseBook}
+                onRent={rentBook}
+            />
         </div>
     );
 };

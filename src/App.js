@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import User from './pages/User';
 import Admin from './pages/Admin';
+import Home from "./pages/Home";
 
 const App = () => {
     return (
@@ -14,7 +15,7 @@ const App = () => {
                 <Router>
                     <Navbar />
                     <Routes>
-                        <Route path="/" element={<User />} /> {/* По умолчанию открываем страницу пользователя */}
+                        <Route path="/" element={<Home />} /> {/* По умолчанию открываем страницу пользователя */}
                         <Route path="/user" element={<User />} />
                         <Route path="/admin" element={<Admin />} />
                     </Routes>

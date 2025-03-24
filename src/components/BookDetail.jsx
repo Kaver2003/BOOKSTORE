@@ -1,52 +1,84 @@
 import React, { useState } from 'react';
 
-const BookDetail = ({ book, onRent }) => {
+const BookDetail = ({ book, onBack, onRent }) => {
     const [rentalPeriod, setRentalPeriod] = useState('');
 
     const handleRent = () => {
         if (!rentalPeriod) {
-            alert('Выберите срок аренды');
+            alert('Пожалуйста, выберите срок аренды');
             return;
         }
-        onRent(book.id, rentalPeriod);
+
+        // Вызываем функцию аренды, если она передана
+        if (onRent) {
+            onRent(book.id, rentalPeriod);
+            onBack();
+        }
     };
 
     return (
-        <div className="p-4 bg-white shadow-md rounded-lg max-w-md mx-auto">
-            <div className="mb-4">
+        <div className="p-4 max-w-4xl mx-auto">
+            <button
+                onClick={onBack}
+                className="mb-6 px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition"
+            >
+                ← Назад
+            </button>
+
+            <div className="flex flex-col md:flex-row gap-8">
                 <img
                     src={book.image}
                     alt={book.title}
-                    className="w-full h-64 object-cover rounded-t-lg mb-4"
+                    className="w-full md:w-1/3 h-auto object-cover rounded-lg"
                 />
-                <h1 className="text-2xl font-bold mb-2">{book.title}</h1>
-                <p className="text-gray-600">Автор: {book.author}</p>
-                <p className="text-gray-600">Год: {book.year}</p>
-                <p className="text-gray-600">Описание: {book.description}</p>
-                <p className="text-gray-600">Цена: ${book.price}</p>
-            </div>
-            <div className="flex gap-4 mt-4">
-                <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                    Купить
-                </button>
-                <select
-                    value={rentalPeriod}
-                    onChange={(e) => setRentalPeriod(e.target.value)}
-                    className="p-2 border border-gray-300 rounded hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400"
-                >
-                    <option value="" disabled>
-                        Выберите срок аренды
-                    </option>
-                    <option value="2 недели">2 недели</option>
-                    <option value="1 месяц">1 месяц</option>
-                    <option value="3 месяца">3 месяца</option>
-                </select>
-                <button
-                    onClick={handleRent}
-                    className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400"
-                >
-                    Арендовать
-                </button>
+
+                <div className="flex-1">
+                    <h1 className="text-3xl font-bold">{book.title}</h1>
+                    <p className="text-xl text-gray-600 mt-2">{book.author}</p>
+                    <p className="text-gray-500 mt-1">{book.year}</p>
+
+                    <div className="my-6 p-4 bg-gray-50 rounded-lg">
+                        <p>{book.description}</p>
+                    </div>
+
+                    {book.status === 'available' ? (
+                        <div className="mt-6">
+                            <h3 className="text-xl font-semibold mb-4">Арендовать книгу</h3>
+                            <select
+                                value={rentalPeriod}
+                                onChange={(e) => setRentalPeriod(e.target.value)}
+                                className="p-2 border rounded mr-3"
+                            >
+                                <option value="">Выберите срок</option>
+                                <option value="2 недели">2 недели</option>
+                                <option value="1 месяц">1 месяц</option>
+                                <option value="3 месяца">3 месяца</option>
+                            </select>
+
+                            <button
+                                onClick={handleRent}
+                                className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+                            >
+                                Подтвердить аренду
+                            </button>
+                        </div>
+                    ) : (
+                        <div className="mt-6 p-4 bg-yellow-50 rounded-lg">
+                            <h3 className="text-xl font-semibold text-yellow-700">
+                                {book.status === 'rented' ? 'Книга арендована' : 'Книга продана'}
+                            </h3>
+                            {book.status === 'rented' && book.rentalEndDate && (
+                                <p>
+                                    До: {new Date(book.rentalEndDate).toLocaleDateString('ru-RU', {
+                                    day: '2-digit',
+                                    month: '2-digit',
+                                    year: 'numeric'
+                                })}
+                                </p>
+                            )}
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );
