@@ -9,7 +9,6 @@ const BookDetail = ({ book, onBack, onRent }) => {
             return;
         }
 
-        // Вызываем функцию аренды, если она передана
         if (onRent) {
             onRent(book.id, rentalPeriod);
             onBack();

@@ -1,4 +1,3 @@
-
 const books = [
     {
         id: 1,
@@ -12,10 +11,10 @@ const books = [
         rentalEndDate: null,
         status: "rented",
         rentalInfo: {
-            userId: 123, // если есть система пользователей
+            userId: 123,
             period: "1 месяц",
-            endDate: "2023-12-31", // дата окончания аренды
-            price: 10 // стоимость аренды
+            endDate: "2023-12-31",
+            price: 10
         }
     },
     {
@@ -30,10 +29,10 @@ const books = [
         rentalEndDate: null,
         status: "rented",
         rentalInfo: {
-            userId: 123, // если есть система пользователей
+            userId: 123,
             period: "1 месяц",
-            endDate: "2023-12-31", // дата окончания аренды
-            price: 10 // стоимость аренды
+            endDate: "2023-12-31",
+            price: 10
         }
     },
     {
@@ -48,10 +47,10 @@ const books = [
         rentalEndDate: null,
         status: "rented",
         rentalInfo: {
-            userId: 123, // если есть система пользователей
+            userId: 123,
             period: "1 месяц",
-            endDate: "2023-12-31", // дата окончания аренды
-            price: 10 // стоимость аренды
+            endDate: "2023-12-31",
+            price: 10
         }
     },
     {
@@ -66,10 +65,10 @@ const books = [
         rentalEndDate: null,
         status: "rented",
         rentalInfo: {
-            userId: 123, // если есть система пользователей
+            userId: 123,
             period: "1 месяц",
-            endDate: "2023-12-31", // дата окончания аренды
-            price: 10 // стоимость аренды
+            endDate: "2023-12-31",
+            price: 10
         }
     },
     {
@@ -84,10 +83,10 @@ const books = [
         rentalEndDate: null,
         status: "rented",
         rentalInfo: {
-            userId: 123, // если есть система пользователей
+            userId: 123,
             period: "1 месяц",
-            endDate: "2023-12-31", // дата окончания аренды
-            price: 10 // стоимость аренды
+            endDate: "2023-12-31",
+            price: 10
         }
     },
     {
@@ -102,10 +101,10 @@ const books = [
         rentalEndDate: null,
         status: "rented",
         rentalInfo: {
-            userId: 123, // если есть система пользователей
+            userId: 123,
             period: "1 месяц",
-            endDate: "2023-12-31", // дата окончания аренды
-            price: 10 // стоимость аренды
+            endDate: "2023-12-31",
+            price: 10
         }
     },
     {
@@ -120,10 +119,10 @@ const books = [
         rentalEndDate: null,
         status: "rented",
         rentalInfo: {
-            userId: 123, // если есть система пользователей
+            userId: 123,
             period: "1 месяц",
-            endDate: "2023-12-31", // дата окончания аренды
-            price: 50 // стоимость аренды
+            endDate: "2023-12-31",
+            price: 50
         }
     },
     {
@@ -138,10 +137,10 @@ const books = [
         rentalEndDate: null,
         status: "available",
         rentalInfo: {
-            userId: 123, // если есть система пользователей
+            userId: 123,
             period: "1 месяц",
-            endDate: "2023-12-31", // дата окончания аренды
-            price: 50 // стоимость аренды
+            endDate: "2023-12-31",
+            price: 50
         }
     },
     {
@@ -156,10 +155,10 @@ const books = [
         rentalEndDate: null,
         status: "available",
         rentalInfo: {
-            userId: 123, // если есть система пользователей
+            userId: 123,
             period: "1 месяц",
-            endDate: "2023-12-31", // дата окончания аренды
-            price: 50 // стоимость аренды
+            endDate: "2023-12-31",
+            price: 50
         }
     },
     {
@@ -174,10 +173,10 @@ const books = [
         rentalEndDate: null,
         status: "available",
         rentalInfo: {
-            userId: 123, // если есть система пользователей
+            userId: 123,
             period: "1 месяц",
-            endDate: "2023-12-31", // дата окончания аренды
-            price: 100 // стоимость аренды
+            endDate: "2023-12-31",
+            price: 100
         }
     },
 
