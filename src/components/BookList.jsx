@@ -88,7 +88,7 @@ const BookList = ({
                     >
                         <div className="relative mt-3 h-48">
                             <img
-                                src={book.image}
+                                src={process.env.PUBLIC_URL + book.image}
                                 alt={book.title}
                                 className="absolute inset-0 w-full h-full object-contain pt-2 object-center cursor-pointer"
                                 onClick={() => onBookClick && onBookClick(book)}

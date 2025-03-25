@@ -26,7 +26,7 @@ const BookDetail = ({ book, onBack, onRent }) => {
 
             <div className="flex flex-col md:flex-row gap-8">
                 <img
-                    src={book.image}
+                    src={process.env.PUBLIC_URL + book.image}
                     alt={book.title}
                     className="w-full md:w-1/3 h-auto object-cover rounded-lg"
                 />

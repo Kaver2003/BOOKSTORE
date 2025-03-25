@@ -142,7 +142,7 @@ const Admin = () => {
                     >
                         <div className="mb-4 h-48  rounded-lg overflow-hidden flex items-center justify-center">
                             <img
-                                src={book.image}
+                                src={process.env.PUBLIC_URL + book.image}
                                 alt={`Обложка: ${book.title}`}
                                 className="h-full object-contain"
                                 onError={(e) => {
