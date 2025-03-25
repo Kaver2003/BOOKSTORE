@@ -6,7 +6,7 @@ const books = [
         author: "Михаил Булгаков",
         year: 1967,
         category: "Классика",
-        price: 15,
+        price: 712,
         description: "Роман о любви, дьяволе и вечных ценностях.",
         image: "/images/mam.jpg",
         rentalEndDate: null,
@@ -24,7 +24,7 @@ const books = [
         author: "Джоан Роулинг",
         year: 1997,
         category: "Фэнтези",
-        price: 20,
+        price: 516,
         description: "История о юном волшебнике Гарри Поттере.",
         image: "/images/GP.jpg",
         rentalEndDate: null,
@@ -42,7 +42,7 @@ const books = [
         author: "Артур Конан Дойл",
         year: 1887,
         category: "Детектив",
-        price: 12,
+        price: 443,
         description: "Приключения великого сыщика Шерлока Холмса.",
         image: "/images/SH.jpg",
         rentalEndDate: null,
@@ -60,7 +60,7 @@ const books = [
         author: "Жюль Верн",
         year: 1864,
         category: "Научная фантастика",
-        price: 10,
+        price: 312,
         description: "Захватывающее путешествие вглубь Земли.",
         image: "/images/PKCZ.jpg",
         rentalEndDate: null,
@@ -78,7 +78,7 @@ const books = [
         author: "Владимир Обручев",
         year: 1924,
         category: "Научная фантастика",
-        price: 8,
+        price: 145,
         description: "Фантастический мир под землей.",
         image: "/images/pluto.jpg",
         rentalEndDate: null,
@@ -96,7 +96,7 @@ const books = [
         author: "Джек Лондон",
         year: 1906,
         category: "Приключения",
-        price: 9,
+        price: 524,
         description: "История волка-собаки, выживающего в суровых условиях.",
         image: "/images/BK.jpg",
         rentalEndDate: null,
@@ -114,7 +114,7 @@ const books = [
         author: "Анджей Сапковский",
         year: 1986,
         category: "Фэнтези",
-        price: 18,
+        price: 532,
         description: "Приключения Геральта из Ривии, ведьмака.",
         image: "/images/witcher.jpg",
         rentalEndDate: null,
@@ -123,7 +123,7 @@ const books = [
             userId: 123, // если есть система пользователей
             period: "1 месяц",
             endDate: "2023-12-31", // дата окончания аренды
-            price: 10 // стоимость аренды
+            price: 50 // стоимость аренды
         }
     },
     {
@@ -132,7 +132,7 @@ const books = [
         author: "Эмили Бронте",
         year: 1847,
         category: "Классика",
-        price: 11,
+        price: 400,
         description: "История страстной и трагической любви.",
         image: "/images/Grozo.jpg",
         rentalEndDate: null,
@@ -141,9 +141,46 @@ const books = [
             userId: 123, // если есть система пользователей
             period: "1 месяц",
             endDate: "2023-12-31", // дата окончания аренды
-            price: 10 // стоимость аренды
+            price: 50 // стоимость аренды
         }
     },
+    {
+        id: 9,
+        title: "Шлем ужаса: Креатифф о Тесее и Минотавре",
+        author: "Виктор Пелевин",
+        year: 2005,
+        category: "Роман",
+        price: 325,
+        description: "Новый роман культового автора, исследующий природу сознания и реальности через призму современной цифровой эпохи.",
+        image: "/images/victor.jpg",
+        rentalEndDate: null,
+        status: "available",
+        rentalInfo: {
+            userId: 123, // если есть система пользователей
+            period: "1 месяц",
+            endDate: "2023-12-31", // дата окончания аренды
+            price: 50 // стоимость аренды
+        }
+    },
+    {
+        id: 10,
+        title: "Игра Престолов",
+        author: "Джордж Р.Р. Мартин",
+        year: 1847,
+        category: "Фэнтези",
+        price: 400,
+        description: "Первый роман эпической саги о борьбе за Железный Трон Семи Королевств, полной интриг, предательств и магии",
+        image: "/images/igra.jpg",
+        rentalEndDate: null,
+        status: "available",
+        rentalInfo: {
+            userId: 123, // если есть система пользователей
+            period: "1 месяц",
+            endDate: "2023-12-31", // дата окончания аренды
+            price: 100 // стоимость аренды
+        }
+    },
+
 ];
 
 export default books;

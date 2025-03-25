@@ -6,11 +6,12 @@ const Home = () => {
     const { books } = useBookContext();
 
     return (
-        <div className="p-4">
-            <h1 className="text-3xl font-bold mb-6">Все книги</h1>
+        <div className="pt-2">
+            <h1 className="text-2xl pl-4 bg-gray-300 font-bold mt-16">Все книги</h1>
             <BookList
                 books={books}
                 showActions={false}
+                showDescription={true}
             />
         </div>
     );

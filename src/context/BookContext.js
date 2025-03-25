@@ -48,7 +48,6 @@ export const BookProvider = ({ children }) => {
 
     const updateBook = (updatedBook) => {
         setBooks(prev => {
-            // Если книга с таким ID уже есть - обновляем, иначе добавляем новую
             const exists = prev.some(b => b.id === updatedBook.id);
             return exists
                 ? prev.map(b => b.id === updatedBook.id ? updatedBook : b)
@@ -96,7 +95,7 @@ export const BookProvider = ({ children }) => {
 export const useBookContext = () => {
     const context = React.useContext(BookContext);
     if (!context) {
-        throw new Error('useBookContext must be used within a BookProvider');
+        throw new Error('Ошибка');
     }
     return context;
 };

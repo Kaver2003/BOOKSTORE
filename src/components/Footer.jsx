@@ -2,9 +2,9 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className="bg-gray-800 text-white p-4 mt-8">
+        <footer className="bg-gray-800 text-white p-4">
             <div className="container mx-auto text-center">
-                <p>© 2025 Книжный магазин любых книг Вероники. Все права защищены.</p>
+                <p>© 2025 Книжный магазин любимых книг Вероники.</p>
             </div>
         </footer>
     );

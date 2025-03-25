@@ -5,7 +5,8 @@ const BookList = ({
                       onBookClick,
                       onPurchase,
                       onRent,
-                      showActions = true
+                      showActions = true,
+                      showDescription = false
                   }) => {
     const [filters, setFilters] = useState({
         category: '',
@@ -14,7 +15,7 @@ const BookList = ({
         sortBy: 'title'
     });
 
-    // Функция для фильтрации и сортировки
+
     const getFilteredBooks = () => {
         return books
             .filter(book => {
@@ -36,12 +37,12 @@ const BookList = ({
     const filteredBooks = getFilteredBooks();
 
     return (
-        <div className="p-4">
+        <div className="p-4 bg-gray-300 min-h-screen">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
                 <select
                     value={filters.category}
-                    onChange={(e) => setFilters({...filters, category: e.target.value})}
-                    className="p-2 border rounded"
+                    onChange={(e) => setFilters({ ...filters, category: e.target.value })}
+                    className="p-2 border rounded bg-white shadow-inner"
                 >
                     <option value="">Все категории</option>
                     {[...new Set(books.map(b => b.category))].map(cat => (
@@ -53,22 +54,22 @@ const BookList = ({
                     type="text"
                     placeholder="Фильтр по автору"
                     value={filters.author}
-                    onChange={(e) => setFilters({...filters, author: e.target.value})}
-                    className="p-2 border rounded"
+                    onChange={(e) => setFilters({ ...filters, author: e.target.value })}
+                    className="p-2 border rounded bg-white shadow-inner"
                 />
 
                 <input
                     type="text"
                     placeholder="Год издания"
                     value={filters.year}
-                    onChange={(e) => setFilters({...filters, year: e.target.value})}
-                    className="p-2 border rounded"
+                    onChange={(e) => setFilters({ ...filters, year: e.target.value })}
+                    className="p-2 border rounded bg-white shadow-inner"
                 />
 
                 <select
                     value={filters.sortBy}
-                    onChange={(e) => setFilters({...filters, sortBy: e.target.value})}
-                    className="p-2 border rounded"
+                    onChange={(e) => setFilters({ ...filters, sortBy: e.target.value })}
+                    className="p-2 border rounded bg-white shadow-inner"
                 >
                     <option value="title">По названию</option>
                     <option value="author">По автору</option>
@@ -77,43 +78,48 @@ const BookList = ({
                 </select>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
                 {filteredBooks.map(book => (
                     <div
                         key={book.id}
-                        className={`border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition ${
-                            book.status === 'rented' ? 'bg-yellow-50' :
-                                book.status === 'purchased' ? 'bg-red-50' : ''
-                        }`}
+                        className={`relative flex flex-col justify-between bg-white group overflow-hidden rounded-xl shadow-2xl transition-all 
+          duration-300 hover:scale-105 hover:shadow-amber-900/20 ${book.status !== 'available' ?
+                            'opacity-90' : 'hover:border-amber-300'}`}
                     >
-                        <img
-                            src={book.image}
-                            alt={book.title}
-                            className="w-full h-64 object-cover cursor-pointer"
-                            onClick={() => onBookClick && onBookClick(book)}
-                        />
+                        <div className="relative mt-3 h-48">
+                            <img
+                                src={book.image}
+                                alt={book.title}
+                                className="absolute inset-0 w-full h-full object-contain pt-2 object-center cursor-pointer"
+                                onClick={() => onBookClick && onBookClick(book)}
+                            />
+                        </div>
                         <div className="p-4">
-                            <h3 className="text-xl font-bold">{book.title}</h3>
-                            <p className="text-gray-600">{book.author}</p>
-                            <p className="text-gray-500">Год: {book.year}</p>
-                            <p className="text-lg font-semibold mt-2">${book.price}</p>
+                            <h3 className="text-xl font-bold mb-2">{book.title}</h3>
+                            <p className="text-gray-600 mb-2">{book.author}</p>
+                            <p className="text-gray-500 mb-2">Год: {book.year}</p>
+                            {showDescription && book.description && (
+                                <div className="mt-2">
+                                    <p className="text-sm text-gray-700 line-clamp-3">{book.description}</p>
+                                </div>
+                            )}
+                            <p className="text-lg font-semibold mb-4">Стоимость: {book.price} руб</p>
 
                             {book.status === 'rented' && book.rentalEndDate && (
-                                <p className="text-yellow-600 mt-2">
+                                <p className="text-yellow-600 mb-4">
                                     Арендована до: {new Date(book.rentalEndDate).toLocaleDateString('ru-RU', {
                                     day: '2-digit',
                                     month: '2-digit',
                                     year: 'numeric'
-                                })}
-                                </p>
+                                })}</p>
                             )}
 
                             {book.status === 'purchased' && (
-                                <p className="text-red-600 mt-2">Продана</p>
+                                <p className="text-red-600 mb-4">Продана</p>
                             )}
 
                             {showActions && book.status === 'available' && (
-                                <div className="mt-4 flex flex-wrap gap-2">
+                                <div className="flex flex-wrap gap-2">
                                     <button
                                         onClick={(e) => {
                                             e.stopPropagation();
